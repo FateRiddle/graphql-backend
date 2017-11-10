@@ -15,4 +15,14 @@ module.exports = {
   Query: {
     allLinks: () => links,
   },
+  Mutation: {
+    createLink: (_, data) => {
+      const newLink = {
+        id: links.length + 1,
+        ...data,
+      }
+      links.push(newLink)
+      return newLink
+    },
+  },
 }
